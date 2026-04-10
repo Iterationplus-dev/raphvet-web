@@ -64,7 +64,19 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="6" class="px-5 py-10 text-center text-sm text-gray-400">No pets found.</td>
+                            <td colspan="6" class="px-5 py-14 text-center">
+                                <div class="flex flex-col items-center gap-3">
+                                    <div class="flex h-14 w-14 items-center justify-center rounded-full bg-pink-50">
+                                        <svg class="h-7 w-7 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-semibold text-gray-700">No pets found.</p>
+                                        <p class="mt-0.5 text-xs text-gray-400">Try searching by a different pet or owner name.</p>
+                                    </div>
+                                </div>
+                            </td>
                         </tr>
                     @endforelse
                 </tbody>

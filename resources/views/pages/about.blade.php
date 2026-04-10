@@ -90,7 +90,7 @@
                 <p class="text-gray-500 mt-3">Our team of dedicated professionals is here to care for your animals.</p>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                @foreach ([['name' => 'Dr. Raphael O.', 'role' => 'Chief Veterinarian'], ['name' => 'Dr. Amaka N.', 'role' => 'Farm Specialist'], ['name' => 'Dr. Emeka T.', 'role' => 'Small Animal Surgeon']] as $member)
+                @foreach ([['name' => 'Dr. Raphael O.', 'role' => 'Chief Veterinarian'], ['name' => 'Dr. Chidinma S.', 'role' => 'Vet. Specialist'], ['name' => 'Dr. Ikeokwo May N.', 'role' => 'Vet. Specialist']] as $member)
                     <div class="bg-gray-50 rounded-2xl p-8 text-center border border-gray-100">
                         <div class="w-20 h-20 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
                             <span class="text-2xl font-bold text-primary-600">{{ substr($member['name'], 4, 1) }}</span>

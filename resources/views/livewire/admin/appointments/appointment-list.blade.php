@@ -70,7 +70,19 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="7" class="px-5 py-10 text-center text-sm text-gray-400">No appointments found.</td>
+                            <td colspan="7" class="px-5 py-14 text-center">
+                                <div class="flex flex-col items-center gap-3">
+                                    <div class="flex h-14 w-14 items-center justify-center rounded-full bg-indigo-50">
+                                        <svg class="h-7 w-7 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-semibold text-gray-700">No appointments found.</p>
+                                        <p class="mt-0.5 text-xs text-gray-400">Try adjusting your filters or date range to see results.</p>
+                                    </div>
+                                </div>
+                            </td>
                         </tr>
                     @endforelse
                 </tbody>
