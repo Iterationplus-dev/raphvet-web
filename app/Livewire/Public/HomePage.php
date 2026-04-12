@@ -6,10 +6,8 @@ use App\Models\Service;
 use App\Models\Testimonial;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\View\View;
-use Livewire\Attributes\Layout;
 use Livewire\Component;
 
-#[Layout('components.layouts.app')]
 class HomePage extends Component
 {
     /** @var Collection<int, Testimonial> */
@@ -26,6 +24,9 @@ class HomePage extends Component
 
     public function render(): View
     {
-        return view('livewire.public.home-page');
+        return view('livewire.public.home-page')
+            ->layout('components.layouts.app', [
+                'description' => 'Raph Veterinary Services — expert veterinary care for pets and livestock across Nigeria. Book appointments online, shop veterinary products, and manage your pet\'s health records.',
+            ]);
     }
 }

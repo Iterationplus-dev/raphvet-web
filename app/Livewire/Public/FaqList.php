@@ -6,10 +6,8 @@ use App\Models\Faq;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\View\View;
 use Livewire\Attributes\Computed;
-use Livewire\Attributes\Layout;
 use Livewire\Component;
 
-#[Layout('components.layouts.app')]
 class FaqList extends Component
 {
     public string $search = '';
@@ -44,6 +42,10 @@ class FaqList extends Component
 
     public function render(): View
     {
-        return view('livewire.public.faq-list');
+        return view('livewire.public.faq-list')
+            ->layout('components.layouts.app', [
+                'title' => 'Frequently Asked Questions',
+                'description' => 'Find answers to common questions about our veterinary services, appointments, pet care, and products at Raph Veterinary Services Nigeria.',
+            ]);
     }
 }

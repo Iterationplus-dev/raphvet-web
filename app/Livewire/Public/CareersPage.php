@@ -4,12 +4,10 @@ namespace App\Livewire\Public;
 
 use App\Models\JobApplication;
 use Illuminate\View\View;
-use Livewire\Attributes\Layout;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
-#[Layout('components.layouts.app')]
 class CareersPage extends Component
 {
     use WithFileUploads;
@@ -65,6 +63,10 @@ class CareersPage extends Component
 
     public function render(): View
     {
-        return view('livewire.public.careers-page');
+        return view('livewire.public.careers-page')
+            ->layout('components.layouts.app', [
+                'title' => 'Careers',
+                'description' => 'Join the Raph Veterinary Services team in Nigeria. Explore career opportunities for veterinarians, vet technicians, and support staff. Apply today.',
+            ]);
     }
 }

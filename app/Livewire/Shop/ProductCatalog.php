@@ -6,11 +6,9 @@ use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Services\CartService;
 use Illuminate\View\View;
-use Livewire\Attributes\Layout;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-#[Layout('components.layouts.app')]
 class ProductCatalog extends Component
 {
     use WithPagination;
@@ -112,6 +110,10 @@ class ProductCatalog extends Component
         $products = $query->paginate(16);
         $categories = ProductCategory::active()->orderBy('sort_order')->get();
 
-        return view('livewire.shop.product-catalog', compact('products', 'categories'));
+        return view('livewire.shop.product-catalog', compact('products', 'categories'))
+            ->layout('components.layouts.app', [
+                'title' => 'Pet & Veterinary Products',
+                'description' => 'Shop premium pet food, medications, accessories, and veterinary supplies at Raph Veterinary Services. Fast delivery across Nigeria.',
+            ]);
     }
 }

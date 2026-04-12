@@ -1,4 +1,7 @@
-<x-layouts.app title="About Us">
+<x-layouts.app
+    title="About Us"
+    description="Learn about Raph Veterinary Services — our mission, team, and commitment to expert veterinary care for pets and livestock across Nigeria."
+>
 
     <!-- Hero -->
     <x-ui.page-hero>

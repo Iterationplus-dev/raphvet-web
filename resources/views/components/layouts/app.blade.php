@@ -5,20 +5,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ $title ?? config('app.name', 'Raph Veterinary Services') }}</title>
-    <meta name="description" content="{{ $description ?? 'Expert veterinary care for your beloved animals. Book appointments, manage pet health records, and shop premium pet products.' }}">
-    <meta name="keywords" content="veterinary, vet, pet care, animal treatment, farm management, pet products">
+    @php
+        $siteName    = config('app.name', 'Raph Veterinary Services');
+        $pageTitle   = $title ?? $siteName;
+        $fullTitle   = ($title ?? false) ? "$pageTitle | $siteName" : $siteName;
+        $pageDesc    = $description ?? 'Expert veterinary care for pets and livestock in Nigeria. Book appointments, manage pet health records, and shop premium veterinary products online.';
+        $pageImage   = $ogImage ?? asset('images/og-image.jpg');
+        $canonicalUrl = url()->current();
+    @endphp
+
+    <title>{{ $fullTitle }}</title>
+    <meta name="description" content="{{ $pageDesc }}">
+    <meta name="keywords" content="{{ $keywords ?? 'veterinary Nigeria, vet clinic Nigeria, pet care Nigeria, animal hospital, livestock treatment, dog vet Lagos, cat vet Abuja, pet health records, farm animal care, veterinary products, pet shop Nigeria, animal doctor, poultry vet, cattle treatment, appointment booking vet' }}">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="{{ $canonicalUrl }}">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="{{ $title ?? config('app.name') }}">
-    <meta property="og:description" content="{{ $description ?? 'Expert veterinary care for your beloved animals.' }}">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:image" content="{{ asset('images/og-image.jpg') }}">
+    <meta property="og:site_name" content="{{ $siteName }}">
+    <meta property="og:title" content="{{ $pageTitle }}">
+    <meta property="og:description" content="{{ $pageDesc }}">
+    <meta property="og:type" content="{{ $ogType ?? 'website' }}">
+    <meta property="og:url" content="{{ $canonicalUrl }}">
+    <meta property="og:image" content="{{ $pageImage }}">
+    <meta property="og:image:alt" content="{{ $pageTitle }}">
+    <meta property="og:locale" content="en_NG">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ $pageTitle }}">
+    <meta name="twitter:description" content="{{ $pageDesc }}">
+    <meta name="twitter:image" content="{{ $pageImage }}">
+
+    <!-- Per-page meta overrides pushed from child views -->
+    @stack('meta')
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="https://res.cloudinary.com/dhmt9seuf/image/upload/q_auto/f_auto/v1775640828/raph_vet_logo_no_text_jrwdnu.svg">
     <link rel="shortcut icon" href="https://res.cloudinary.com/dhmt9seuf/image/upload/q_auto/f_auto/v1775640828/raph_vet_logo_no_text_jrwdnu.svg">
+    <link rel="apple-touch-icon" href="https://res.cloudinary.com/dhmt9seuf/image/upload/q_auto/f_auto/v1775640828/raph_vet_logo_no_text_jrwdnu.svg">
+
+    <!-- JSON-LD: Veterinary Practice -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "VeterinaryCare",
+        "name": "Raph Veterinary Services",
+        "description": "Expert veterinary care for pets and livestock across Nigeria. We offer clinical consultations, farm management, vaccinations, surgery, and premium pet products.",
+        "url": "{{ config('app.url') }}",
+        "logo": "https://res.cloudinary.com/dhmt9seuf/image/upload/q_auto/f_auto/v1775640828/raph_vet_logo_no_text_jrwdnu.svg",
+        "image": "{{ asset('images/og-image.jpg') }}",
+        "telephone": "+2349127128206",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+2349127128206",
+            "contactType": "customer service",
+            "availableLanguage": "English"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "NG"
+        },
+        "areaServed": {
+            "@type": "Country",
+            "name": "Nigeria"
+        },
+        "sameAs": [],
+        "priceRange": "₦₦",
+        "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+            "opens": "08:00",
+            "closes": "18:00"
+        }
+    }
+    </script>
 
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">

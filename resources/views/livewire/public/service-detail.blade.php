@@ -1,4 +1,31 @@
 <div>
+    {{-- JSON-LD: Service Schema --}}
+    @push('scripts')
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "{{ $service->name }}",
+        "name": "{{ $service->name }}",
+        "description": "{{ $service->meta_description ?: $service->short_description ?: $service->name }}",
+        "url": "{{ route('services.show', $service->slug) }}",
+        "provider": {
+            "@type": "VeterinaryCare",
+            "name": "Raph Veterinary Services",
+            "url": "{{ config('app.url') }}"
+        },
+        "areaServed": {
+            "@type": "Country",
+            "name": "Nigeria"
+        },
+        "availableChannel": {
+            "@type": "ServiceChannel",
+            "serviceUrl": "{{ route('appointments.book') }}"
+        }
+    }
+    </script>
+    @endpush
+
     {{-- Hero --}}
     <x-ui.page-hero :centered="false">
         {{-- Breadcrumb --}}

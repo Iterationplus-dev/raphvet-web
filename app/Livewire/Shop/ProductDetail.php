@@ -5,10 +5,8 @@ namespace App\Livewire\Shop;
 use App\Models\Product;
 use App\Services\CartService;
 use Illuminate\View\View;
-use Livewire\Attributes\Layout;
 use Livewire\Component;
 
-#[Layout('components.layouts.app')]
 class ProductDetail extends Component
 {
     public Product $product;
@@ -61,6 +59,17 @@ class ProductDetail extends Component
             ->limit(4)
             ->get();
 
-        return view('livewire.shop.product-detail', compact('relatedProducts'));
+        $title = $this->product->meta_title ?: $this->product->name;
+        $description = $this->product->meta_description
+            ?: ($this->product->short_description ?: 'Buy '.$this->product->name.' at Raph Veterinary Services. Premium veterinary product delivered across Nigeria.');
+        $ogImage = $this->product->primaryImage?->url ?? asset('images/og-image.jpg');
+
+        return view('livewire.shop.product-detail', compact('relatedProducts'))
+            ->layout('components.layouts.app', [
+                'title' => $title,
+                'description' => $description,
+                'ogImage' => $ogImage,
+                'ogType' => 'product',
+            ]);
     }
 }

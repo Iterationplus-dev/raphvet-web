@@ -4,11 +4,9 @@ namespace App\Livewire\Public;
 
 use App\Models\ContactSubmission;
 use Illuminate\View\View;
-use Livewire\Attributes\Layout;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
 
-#[Layout('components.layouts.app')]
 class ContactForm extends Component
 {
     #[Rule('required|max:100')]
@@ -53,6 +51,10 @@ class ContactForm extends Component
 
     public function render(): View
     {
-        return view('livewire.public.contact');
+        return view('livewire.public.contact')
+            ->layout('components.layouts.app', [
+                'title' => 'Contact Us',
+                'description' => 'Get in touch with Raph Veterinary Services. Send us a message for enquiries about veterinary care, appointments, products, or any other support across Nigeria.',
+            ]);
     }
 }

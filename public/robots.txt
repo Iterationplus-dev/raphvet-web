@@ -1,2 +1,13 @@
 User-agent: *
-Disallow:
+Disallow: /admin/
+Disallow: /my/
+Disallow: /vet/
+Disallow: /login
+Disallow: /register
+Disallow: /forgot-password
+Disallow: /reset-password/
+Disallow: /cart
+
+Allow: /
+
+Sitemap: https://raphvet.com/sitemap.xml
