@@ -2,8 +2,8 @@
 @push('scripts')
 <script type="application/ld+json">
 {
-    "@context": "https://schema.org",
-    "@type": "Product",
+    "@@context": "https://schema.org",
+    "@@type": "Product",
     "name": "{{ $product->name }}",
     "description": "{{ $product->meta_description ?: $product->short_description ?: $product->name }}",
     "sku": "{{ $product->sku }}",
@@ -12,17 +12,17 @@
     "image": "{{ $product->primaryImage->url }}",
     @endif
     "brand": {
-        "@type": "Brand",
+        "@@type": "Brand",
         "name": "Raph Veterinary Services"
     },
     "offers": {
-        "@type": "Offer",
+        "@@type": "Offer",
         "priceCurrency": "NGN",
         "price": "{{ $product->price }}",
         "availability": "{{ $product->isInStock() ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock' }}",
         "url": "{{ route('shop.show', $product->slug) }}",
         "seller": {
-            "@type": "Organization",
+            "@@type": "Organization",
             "name": "Raph Veterinary Services"
         }
     }

@@ -47,8 +47,8 @@
     <!-- JSON-LD: Veterinary Practice -->
     <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
-        "@type": "VeterinaryCare",
+        "@@context": "https://schema.org",
+        "@@type": "VeterinaryCare",
         "name": "Raph Veterinary Services",
         "description": "Expert veterinary care for pets and livestock across Nigeria. We offer clinical consultations, farm management, vaccinations, surgery, and premium pet products.",
         "url": "{{ config('app.url') }}",
@@ -56,23 +56,23 @@
         "image": "{{ asset('images/og-image.jpg') }}",
         "telephone": "+2349127128206",
         "contactPoint": {
-            "@type": "ContactPoint",
+            "@@type": "ContactPoint",
             "telephone": "+2349127128206",
             "contactType": "customer service",
             "availableLanguage": "English"
         },
         "address": {
-            "@type": "PostalAddress",
+            "@@type": "PostalAddress",
             "addressCountry": "NG"
         },
         "areaServed": {
-            "@type": "Country",
+            "@@type": "Country",
             "name": "Nigeria"
         },
         "sameAs": [],
         "priceRange": "₦₦",
         "openingHoursSpecification": {
-            "@type": "OpeningHoursSpecification",
+            "@@type": "OpeningHoursSpecification",
             "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
             "opens": "08:00",
             "closes": "18:00"

@@ -3,23 +3,23 @@
     @push('scripts')
     <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
-        "@type": "Service",
+        "@@context": "https://schema.org",
+        "@@type": "Service",
         "serviceType": "{{ $service->name }}",
         "name": "{{ $service->name }}",
         "description": "{{ $service->meta_description ?: $service->short_description ?: $service->name }}",
         "url": "{{ route('services.show', $service->slug) }}",
         "provider": {
-            "@type": "VeterinaryCare",
+            "@@type": "VeterinaryCare",
             "name": "Raph Veterinary Services",
             "url": "{{ config('app.url') }}"
         },
         "areaServed": {
-            "@type": "Country",
+            "@@type": "Country",
             "name": "Nigeria"
         },
         "availableChannel": {
-            "@type": "ServiceChannel",
+            "@@type": "ServiceChannel",
             "serviceUrl": "{{ route('appointments.book') }}"
         }
     }
